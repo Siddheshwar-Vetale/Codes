@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handling Example</title>
+  </head>
+  <body>
+    <button id="myButton" onclick="click()">Click me</button>
+    <input type="text" id="myInput" onchange="change()" />
+    <div id="myDiv" onmouseover="hover()" onmouseout="mouseout()">Hover</div>
+
+    <script>
+      const button = document.getElementById("myButton");
+      const input = document.getElementById("myInput");
+      const div = document.getElementById("myDiv");
+
+      const click = () => {
+        alert("Button clicked!");
+      };
+
+      const change = () => {
+        const inputValue = event.target.value;
+        console.log(inputValue);
+      };
+
+      const hover = () => {
+        div.style.backgroundColor = "lightblue";
+      };
+
+      const mouseout = () => {
+        div.style.backgroundColor = "";
+      };
+    </script>
+  </body>
+</html>

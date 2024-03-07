@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #regForm {
+        text-align: center;
+      }
+      .error {
+        color: red;
+        text-align: center;
+        font-size: 12 px;
+        position: relative;
+        left: 43px;
+      }
+      .mnoerror {
+        color: red;
+        text-align: center;
+        font-size: 12 px;
+        position: relative;
+        left: 63px;
+      }
+      .emerror {
+        color: red;
+        text-align: center;
+        font-size: 12 px;
+        position: relative;
+        left: 47px;
+      }
+      .email {
+        position: relative;
+        right: 20 px;
+        padding-right: 28px;
+      }
+      #email-ip {
+        position: relative;
+        left: 15 px;
+      }
+      .tno {
+        position: relative;
+      }
+      .fname-ip {
+        position: relative;
+        left: 20px;
+      }
+      .lname-ip {
+        position: relative;
+        left: 20px;
+      }
+      .email-ip {
+        position: relative;
+        left: 36px;
+      }
+      .address {
+        position: relative;
+        right: 20 px;
+        padding-right: 18px;
+      }
+      .address-ip {
+        position: relative;
+        left: 23px;
+      }
+      .tno {
+        position: relative;
+        left: 10px;
+      }
+      .mno-ip {
+        position: relative;
+        left: 20px;
+      }
+    </style>
+    <form id="regForm" onsubmit="return registerForm()">
+      <h1>Registration Form</h1>
+
+      <p class="fname">
+        First Name: <input id="fname" type="text" class="fname-ip" /><br /><span
+          id="ferror"
+          class="error"
+        >
+        </span>
+      </p>
+
+      <p class="lname">
+        Last Name: <input id="lname" type="text" class="lname-ip" /><br /><span
+          id="lerror"
+          class="error"
+        >
+        </span>
+      </p>
+
+      <p class="email">
+        Email: <input id="mail" type="email" class="email-ip" /><br /><span
+          id="emerror"
+          class="emerror"
+        >
+        </span>
+      </p>
+
+      <p class="address">
+        Addesss : <textarea id="address" class="address-ip"> </textarea>
+      </p>
+
+      <p class="tno">
+        Telephone No: <input id="tno" type="number" class="tno-ip" />
+      </p>
+
+      <p class="mno">
+        Mobile No: <input id="mno" type="number" class="mno-ip" /><br /><span
+          id="mnerror"
+          class="mnoerror"
+        >
+        </span>
+      </p>
+
+      <input type="submit" id="submit" value="submit" />
+      <div id="op"></div>
+    </form>
+    <script>
+      // let btn = document.getElementById("btn");
+
+      const registerForm = () => {
+        let fname = document.getElementById("fname").value;
+        let lname = document.getElementById("lname").value;
+        let email = document.getElementById("mail").value;
+        let address = document.getElementById("address").value;
+        let tno = document.getElementById("tno").value;
+        let mno = document.getElementById("mno").value;
+        let ferror = document.getElementById("ferror");
+        let lerror = document.getElementById("lerror");
+        let emerror = document.getElementById("emerror");
+        let mnerror = document.getElementById("mnerror");
+
+        let retflag = true;
+        validateFname(fname, retflag);
+        validateLname(lname, retflag);
+        validateEmail(email, retflag);
+        validateMno(mno, retflag);
+
+        // if (fname.length <= 0) {
+        //   //   alert("First Name is required");
+        //   ferror.innerHTML = "*First Name is required";
+        //   retflag = false;
+        // }
+
+        // if (lname.length <= 0) {
+        //   //   alert("Last Name is required");
+        //   lerror.innerHTML = "*Last Name is required";
+        //   retflag = false;
+        // }
+        // if (!email.match(validRegex)) {
+        //   // alert("only 10 numbers");
+        //   emerror.innerHTML = "*please enter valid email";
+        //   retflag = false;
+        // }
+
+        // if (!mno.match(phoneno)) {
+        //   // alert("Valid email address!");
+        //   mnerror.innerHTML = "*Please enter valid mobileNo.";
+        //   retflag = false;
+        // }
+        if (!retflag) {
+          return false;
+        }
+        // op = document.getElementById("op");
+        // op.innerHTML = `<p>  First Name : ${fname} </p>
+        // <p > Last Name : ${lname} </p>
+        // <p> Email : ${email} </p>
+        // <p> Address : ${address} </p>
+        // <p> telephone No : ${tno} </p>
+        // <p> Mobile No : ${mno} </p>`;
+        returnValue(fname, lname, email, address, tno, mno);
+
+        // console.log("First Name : " + fname);
+        // console.log("Last Name : " + lname);
+        // console.log("Email : " + email);
+        // console.log("Address : " + address);
+        // console.log("Telephone Number : " + tno);
+        // console.log("Mobile Number : " + mno);
+        return false;
+      };
+
+      const validateFname = (fname, retflag) => {
+        if (fname.length <= 0) {
+          //   alert("First Name is required");
+          ferror.innerHTML = "*First Name is required";
+          retflag = false;
+        }
+        return [fname, retflag];
+      };
+      const validateLname = (lname, retflag) => {
+        if (lname.length <= 0) {
+          //   alert("Last Name is required");
+          lerror.innerHTML = "*Last Name is required";
+          retflag = false;
+        }
+        return [lname, retflag];
+      };
+      const validateEmail = (email, retflag) => {
+        var validRegex =
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (!email.match(validRegex)) {
+          // alert("only 10 numbers");
+          emerror.innerHTML = "*please enter valid email";
+          retflag = false;
+        }
+        return [email, retflag];
+      };
+      const validateMno = (Mno, retflag) => {
+        var phoneno = /^\d{10}$/;
+        if (!Mno.match(phoneno)) {
+          // alert("Valid email address!");
+          mnerror.innerHTML = "*Please enter valid mobileNo.";
+          retflag = false;
+        }
+        return [Mno, retflag];
+      };
+      const returnValue = (fname, lname, email, address, tno, mno) => {
+        if (fname && lname && email && mno) {
+          op.innerHTML = `<p>  First Name : ${fname} </p>
+          <p > Last Name : ${lname} </p>
+          <p> Email : ${email} </p>
+          <p> Address : ${address} </p>
+          <p> telephone No : ${tno} </p>
+          <p> Mobile No : ${mno} </p>`;
+          return op;
+        }
+      };
+
+      // btn.addEventListener("click", registerForm);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="web.css"></link>
+</head>
+<body>
+    <div style=" padding-left: 300px; font-size: 30px;"><h1>How to create tab that display different content</h1></div>
+    <div id="page1">
+        <h1 id="h1" style="text-align: center">About</h1>
+        <h4 style="text-align: center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h4>
+        <div id="page2">
+            <div id="img">
+                <img id="image" src="./road.png">
+            </div>
+            <div id="page3">
+                <div id="buttons">
+                    <button id="btn1" class="button" onclick="showHistory()">History</button>
+                    <button id="btn2" class="button" onclick="showVision()">Vision</button>
+                    <button id="btn3" class="button" onclick="showGoals()">Goals</button>
+                </div>
+                <div id="text"> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="web.js"></script>
+</html>

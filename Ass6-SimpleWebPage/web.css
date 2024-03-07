@@ -1,0 +1,60 @@
+#page1 {
+  margin: 10px 300px 100px 300px;
+  background-color: #e5e8e8;
+  margin-bottom: 100px;
+  height: 480px;
+}
+#page2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+#text {
+  background-color: white;
+  padding: 10px;
+}
+#image {
+  height: 260px;
+  width: 350px;
+  border-radius: 5px;
+}
+#img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#buttons {
+  display: flex;
+  display: inline-flex;
+}
+#page3 {
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  width: 120px;
+  height: 30px;
+  background-color: #98a4b0;
+  border: none;
+}
+#btn1 {
+  border-radius: 4px 0px 0px 4px;
+}
+#btn3 {
+  border-radius: 0px 4px 4px 0px;
+}
+#text {
+  width: 340px;
+  height: 210px;
+}
+.button:hover {
+  border: 2px solid blue;
+  cursor: pointer;
+}
+#h1 {
+  padding-top: 60px;
+}
+.button:focus {
+  border: 1.5px solid #00c;
+}
